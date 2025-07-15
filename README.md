@@ -1,54 +1,104 @@
-# React + TypeScript + Vite
+# 🌱 Miru-Gotchi - 캐릭터 육성을 통한 습관 형성 서비스  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+타마고치처럼 캐릭터를 키우며, 매일 목표를 체크하고 습관을 만들어가는 서비스입니다.  
+사용자는 **목표를 설정하고 매일 체크하며 캐릭터를 성장시킬 수 있습니다.**
 
-Currently, two official plugins are available:
+<br>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 프로젝트 소개
 
-## Expanding the ESLint configuration
+| 구분 | 내용 |
+| --- | --- |
+| **프로젝트 기간** | 2024.06.22 ~ 2024.06.29 (8일) |
+| **팀원** | 4명 |
+| **역할** | 기획 / 개발 / 디자인 / 배포 전원 참여 |
+| **스크럼 마스터** | **강선영** (초기세팅, Firebase 연동, Google 로그인 담당) |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+<br>
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🛠️ 기술 스택
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+| 구분 | 스택 |
+| --- | --- |
+| **Frontend** | React 18, Vite, TypeScript |
+| **Database** | Firebase Firestore |
+| **Auth** | Firebase Auth (Google 로그인) |
+| **Hosting** | Netlify |
+| **Style** | Styled Components, MUI |
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+<br>
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🖥️ 주요 기능
+
+### ✅ 로그인 / 회원가입
+- Google 소셜 로그인 (Firebase Auth)
+
+### 🏆 목표 관리
+- 목표 등록 / 수정 / 삭제
+- 일일 체크 기능 (체크하면 캐릭터 성장)
+
+### 🐣 캐릭터 육성
+- 목표 달성률에 따라 캐릭터 성장 상태 반영
+- 캐릭터 별 상세페이지 제공
+- 캐릭터 상태 및 성장 단계 표시
+
+<br>
+
+## 🖥️ 주요 화면
+
+| 기능 | 경로 |
+| --- | --- |
+| 로그인 | `/login` |
+| 목표 리스트 | `/goals` |
+| 목표 등록 | `/goals/create` |
+| 캐릭터 목록 | `/character` |
+| 캐릭터 상세 | `/character/:id` |
+| 메인 페이지 | `/` |
+
+<br>
+
+## 🔧 프로젝트 진행 방식
+
+### 🗓️ 일정
+
+| Day | 주요 작업 |
+| --- | --- |
+| **Day 1-3** | 기획, 와이어프레임, 초기 세팅, 역할 분배 |
+| **Day 4-6** | 기능 개발, 통합 테스트, Firebase 연동, 버그 수정 |
+| **Day 7-8** | 최종 점검, 발표 준비, 배포 |
+
+### 👥 협업 방식
+- **스크럼**: 매일 20시 진행 상황 공유  
+- **PR 정책**: 코드 리뷰 최소 1명 승인 후 머지  
+- **긴급 대응**: 막히는 부분 즉시 요청  
+
+<br>
+
+## 🔗 배포 링크
+**Netlify**: [https://miru-gotchi.netlify.app/](https://miru-gotchi.netlify.app/)
+
+<br>
+
+## 🙌 담당 역할 (나)
+
+| 담당 | 내용 |
+| --- | --- |
+| **스크럼마스터** | 일정 관리, GitHub Repository 설정 |
+| **초기 환경 세팅** | Vite + React + TypeScript 세팅 |
+| **Firebase 연동** | Firestore 구조 설계, 연동 |
+| **인증 기능** | Firebase Auth, Google 로그인 |
+
+<br>
+
+## 📌 협업 포인트
+- 공통 컴포넌트, 스타일 가이드 통일
+- Firestore 구조에 맞춰 각자 담당 영역 개발
+- Firebase의 데이터 흐름에 맞게 유기적인 협업
+- 모든 기능은 Firebase 기반 (실시간 반영)
+
+<br>
+
+## 💡 느낀 점
+- Firebase의 구조적 이해와 실시간 데이터 동기화 경험  
+- 팀원과의 적극적인 소통을 통한 효율적인 협업 경험  
+- 빠른 MVP 제작을 위한 프로젝트 관리 중요성 체감
